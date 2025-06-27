@@ -16,7 +16,7 @@ spec:
       - name: sports-commerce
         image: kundan547/sports-commerce:v1
         ports:
-        - containerPort: 90
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -29,5 +29,5 @@ spec:
   ports:
     - protocol: TCP
       port: 90        # Service port
-      targetPort: 90  # Container port
+      targetPort: 80  # Container port
       nodePort: 30090 # Node port (optional; range: 30000-32767)
