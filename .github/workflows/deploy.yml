@@ -20,7 +20,7 @@ jobs:
 
       - name: Set up Kubeconfig
         run: |
-          printf "%s" "${{ secrets.KUBECONFIG }}" > kubeconfig
+          printf "%s" "$secrets.KUBECONFIG " > kubeconfig
           echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
 
       - name: Deploy to Kubernetes
