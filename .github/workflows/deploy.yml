@@ -26,3 +26,10 @@ jobs:
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -f deployment.yml --validate=false
+          kubectl rollout status deployment/sports-commerce
+
+      - name: Verify Deployment
+        run: |
+          kubectl get deployments
+          kubectl get pods
+          kubectl get svc
