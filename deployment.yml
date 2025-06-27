@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sports-commerce
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sports-commerce
+  template:
+    metadata:
+      labels:
+        app: sports-commerce
+    spec:
+      containers:
+      - name: sports-commerce
+        image: kundan547/sports-commerce:v1
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sports-commerce-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: sports-commerce
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
