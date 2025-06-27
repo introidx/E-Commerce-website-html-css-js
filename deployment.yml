@@ -23,10 +23,11 @@ kind: Service
 metadata:
   name: sports-commerce-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: sports-commerce
   ports:
     - protocol: TCP
-      port: 90
-      targetPort: 90
+      port: 90        # Service port
+      targetPort: 90  # Container port
+      nodePort: 30090 # Node port (optional; range: 30000-32767)
